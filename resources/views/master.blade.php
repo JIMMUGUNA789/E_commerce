@@ -34,7 +34,7 @@
         
     }
     .custom-product{
-        height: 600px;
+        height: auto;
     }
     .slider-text{
         background-color: #35443585 !important
@@ -51,6 +51,18 @@
     }
     .search-box{
         width: 400% !important
+    }
+    .cart-list-divider{
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .order{
+        padding-left: 20px;
+    }
+    .order-textarea{
+        height: 30px;
+        width: 500px;
     }
 </style>
 </html>
