@@ -4,7 +4,7 @@
     <div class="col-sm-10">
         <div class="trending-wrapper">
             <h4>My Cart</h4>
-            <a href="/ordernow" class="btn btn-success">Order Now</a>
+            <a href="/ordernow" class="btn btn-success">Order Now</a><br><br>
             @foreach ($products as $item)
             <div class="row searched-item cart-list-divider">
                 <div class="col-sm-3">
@@ -19,13 +19,13 @@
                     </div><br>
                 </div>
                 <div class="col-sm-4">
-                    {{-- <form action="/remove{{$item->cart_id}}">
+                    <form action="/removecart/{{$item->cart_id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input type="hidden" value="{{$item->cart_id}}" name="itemtodelete">
+                        <input type="text" value="{{$item->cart_id}}" name="itemtodelete">
                         <button class="btn btn-warning">Remove from Cart</button>
-                    </form> --}}
-                    <a href="/removecart/{{$item->cart_id}}" class="btn btn-warning">Remove from Cart </a> 
+                    </form>
+                    {{-- <a href="/removecart/{{$item->cart_id}}" class="btn btn-warning">Remove from Cart </a>  --}}
                 </div>
             </div>
                 

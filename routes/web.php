@@ -45,9 +45,9 @@ Route::post('/orderplace', [ProductController::class, 'orderPlace']);
 //myorders
 Route::get('/myorders', [ProductController::class, 'myOrders']);
 //register form
-Route::get('/register', [ProductController::class, 'registerForm']);
+Route::get('/register', [UserController::class, 'registerForm']);
 //register
-Route::post('/register',[ProductController::class, 'register']);
+Route::post('/register',[UserController::class, 'register']);
 
 
 

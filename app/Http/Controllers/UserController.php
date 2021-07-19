@@ -24,4 +24,36 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+    public function registerForm(){
+        return view('register');
+    }
+    public function register(Request $request){
+       // dd($request->input());
+      $isExists = User::where('email', $request->email)
+                            ->exists();
+    if(!$isExists){
+        $password = Hash::make($request->password);
+        if(!Hash::check($request->confirmpassword, $password)){
+            return view('/register');
+
+        }
+        else{
+            $newUser = new User();
+            $newUser->name = $request->name;
+            $newUser->email = $request->email;
+            $newUser->password = Hash::make($request->password);
+           $newUser->save();
+             return view('/login');
+    
+        }
+         
+        
+    }
+    else{
+        //return "user already exist";
+        return redirect('/register');
+    }
+   
+
+    }
 }

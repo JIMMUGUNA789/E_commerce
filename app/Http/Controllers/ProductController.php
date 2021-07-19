@@ -64,17 +64,17 @@ class ProductController extends Controller
         return view('cartlist', ['products'=>$products]);
     }
     //remove from cart
-    //  function removeCart(Request $request){
-    //      $id = $request->itemtodelete;
-    //    Cart::destroy($id);
-    //    return "deleted";
-       // return $id;}
-       function removeCart($id){
-           Cart::destroy($id);
-           return redirect('/cartlist');
+     function removeCart(Request $request){
+         $id = $request->itemtodelete;
+      // Cart::destroy($id);
+       //return "deleted";
+       dd($id);}
+    //    function removeCart($id){
+    //        Cart::destroy($id);
+    //        return redirect('/cartlist');
        
        
-    }
+    // }
     public function orderNow(){
         $userId = Session::get('user')['id'];
        $total = $products = DB::table('cart')
@@ -115,25 +115,5 @@ class ProductController extends Controller
         return view('myorders', ['orders'=>$orders]);
 
     }
-    public function registerForm(){
-        return view('register');
-    }
-    public function register(Request $request){
-       // dd($request->input());
-      $isExists = User::where('email', $request->email)
-                            ->exists();
-    if(!$isExists){
-        return "user already exist";
-    }
-    else{
-        return redirect('/register')->with('message', 'Email in use');
-    }
-    //    $newUser = new User();
-    //    $newUser->name = $request->name;
-    //    $newUser->email = $request->email;
-    //    $newUser->password = Hash::make($request->password);
-    //    $newUser->save();
-       // return view('/login');
 
-    }
 }
